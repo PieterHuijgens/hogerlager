@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +20,13 @@ public class hoger_lager extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		count = 0;
+		if (request.getCookies() == null) {
+			request.getRequestDispatcher("/Login.java").forward(request, response);
+		}
+		/*count = 0;
 		request.setAttribute("hint", hint);
 		request.setAttribute("count", count);
-		request.getRequestDispatcher("/WEB-INF/HogerLager.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/HogerLager.jsp").forward(request, response);*/
 
 	}
 
@@ -45,7 +47,6 @@ public class hoger_lager extends HttpServlet {
 			}
 			if (secret == Gok) {
 				hint = "gefeliciteerd, je hebt het geraden. Voer een nieuw getal in om het nog een keer te spelen.";
-				//count = 0;
 				secret = rand.nextInt(100);
 			}
 		}

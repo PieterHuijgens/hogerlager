@@ -4,19 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>hoger of lager</title>
+<title>Maak hier een account</title>
 </head>
 <body>
-Welk getal gok je?
 <form method="post">
-<input type="text" name="gok">
+Username:
+<input type="username" name="username">
+<br>
+Wachtwoord: 
+<input type="password" name="pwd">
 <br>
 <input type=submit value=Verzend!>
-hint: <%= request.getAttribute("hint") %>
-<% %>
-<br>
-Je hebt er <%= request.getAttribute("count") %> keer over gedaan.
-</form>
-
 </body>
 </html>
