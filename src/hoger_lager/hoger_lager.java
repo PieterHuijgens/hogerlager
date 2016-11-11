@@ -21,12 +21,14 @@ public class hoger_lager extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if (request.getCookies() == null) {
-			request.getRequestDispatcher("/Login.java").forward(request, response);
+			response.sendRedirect("Login");
 		}
-		/*count = 0;
-		request.setAttribute("hint", hint);
-		request.setAttribute("count", count);
-		request.getRequestDispatcher("/WEB-INF/HogerLager.jsp").forward(request, response);*/
+		
+		 count = 0; request.setAttribute("hint", hint);
+		 request.setAttribute("count", count);
+		 request.getRequestDispatcher("/WEB-INF/HogerLager.jsp").forward(
+		 request, response);
+		 
 
 	}
 
